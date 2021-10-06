@@ -1,3 +1,3 @@
 export class ListingId {
-    public id : string
+    public id : number
 }

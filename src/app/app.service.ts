@@ -33,7 +33,6 @@ export class AppService {
   public url = environment.url + '/assets/data/'; 
   public apiKey = 'AIzaSyAO7Mg2Cs1qzo_3jkKkZAKY6jtwIlm41-I';
 
-  public serverUrl = 'https://api-demo.mlsgrid.com/v2/'
   
   constructor(public http:HttpClient, 
               private bottomSheet: MatBottomSheet, 
@@ -46,15 +45,12 @@ export class AppService {
   public getProperties(): Observable<TxData>{
     console.log("getProperties has been called")
     return this.http.get<TxData>(this.url + 'properties.json');
-    //if you want to get the data from server
-    // return this.http.get<TxData>("https://api-demo.mlsgrid.com/v2/Property?$filter=OriginatingSystemName eq 'mibor' and MlgCanView eq true&$expand=Media");
   }
 
   public getPropertyById(id): Observable<TxData>{
     console.log("getProperty has been called", id)
     const idArray = id.split('-');
 
-    return this.http.get<TxData>(this.serverUrl + `\Property('${id}')`);
   }
 
   public getFeaturedProperties(): Observable<TxData>{
