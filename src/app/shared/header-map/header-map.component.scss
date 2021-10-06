@@ -1,0 +1,21 @@
+@import "../../theme/styles/variables";
+
+.map-wrapper{
+    height: $header-map-height;
+    .sebm-google-map-container{
+        height: 100%;
+    }
+    &.offset-bottom{
+        height: $header-map-height + $main-content-header-offset-to-top;        
+        .slide-info{
+            padding-bottom: $main-content-header-offset-to-top;
+        }
+    }
+    &.fullscreen{
+        height: calc(100vh - (#{$top-toolbar-height} + #{$main-toolbar-height})) !important;
+        &.toolbar-2{
+            height: calc(100vh - 202px) !important; 
+        }
+    }
+}
+
